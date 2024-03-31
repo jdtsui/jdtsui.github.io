@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LetsGo, an explicit and efficient end-to-end framework for high-fidelity rendering of large-scale garages.">
+  <meta name="keywords" content="GaussianHair, 3DGS, NR">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LetsGo: Large-Scale Garage Modeling and Rendering via LiDAR-Assisted Gaussian Primitives</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LetsGo: Large-Scale Garage Modeling and Rendering via LiDAR-Assisted Gaussian Primitives</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a>Jiadi Cui</a><sup>1,3,* </sup>,
+            </span>
+            <span class="author-block">
+              <a>Junming Cao</a><sup>4,*</sup>,
+            </span>
+            <span class="author-block">
+              <a>Yuhui Zhong</a><sup>2,*</sup>,
+            </span>
+            <span class="author-block">
+              <a>Liao Wang </a><sup>1,4</sup>,
+            </span>
+            <span class="author-block">
+              <a>Fuqiang Zhao</a><sup>1,4</sup>,
+            </span>
+            <span class="author-block">
+              <a> Penghao Wang</a><sup>1,4</sup>,
+            </span>
+            <span class="author-block">
+              <a>Yifan Chen</a><sup>1,4</sup>,
+            </span>
+            <span class="author-block">
+              <a> Zhipeng He</a><sup>1,4</sup>,
+            </span>
+            <span class="author-block">
+              <a>Yujiao Shi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.xu-lan.com/">Lan Xu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a>Yingliang Zhang</a><sup>2, †</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.yu-jingyi.com/cv/">Jingyi Yu</a><sup>1, †</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ShanghaiTech University</span>,
+            <span class="author-block"><sup>2</sup>DGene</span>,
+            <span class="author-block"><sup>3</sup>Stereye</span>,
+            <span class="author-block"><sup>4</sup>NeuDim</span>
+            <!-- <span class="author-block"><sup>*</sup>These authors contributed equally.</span> -->
+            </div>
+              <span class="author-block"><sup>*</sup>Contributed equally to this work</span>
+              <span class="author-block"><sup>†</sup>Corresponding author</span>
+            </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+ <!--  
+             <span class="link-block">
+                <a href="https://youtu.be/hmNCF5TR8sw"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+-->
+              <!-- Code Link. -->
+<!--  
+              <span class="link-block">
+                <a href="https://github.com/HaiminLuo/GaussianHair"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+-->
+              <!-- Dataset Link. -->
+
+<!--
+              <span class="link-block">
+                <a href="https://github.com/HaiminLuo/GaussianHair"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <p style="text-align: center;"><img src="teaser.jpg" alt="" style="max-width:83%;"></p>
+      <h2 class="subtitle has-text-centered">
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large garages are ubiquitous yet intricate scenes in our daily lives, posing challenges characterized by monotonous colors, repetitive patterns, reflective surfaces, and transparent vehicle glass. 
+Conventional Structure from Motion (SfM) methods for camera pose estimation and 3D reconstruction fail in these environments due to poor correspondence construction. To address these challenges, this paper introduces LetsGo, a LiDAR-assisted Gaussian splatting approach for large-scale garage modeling and rendering.
+We develop a handheld scanner, Polar, equipped with IMU, LiDAR, and a fisheye camera, to facilitate accurate LiDAR and image data scanning. 
+With this Polar device, we present a GarageWorld dataset consisting of five expansive garage scenes with diverse geometric structures and will release the dataset to the community for further research.
+We demonstrate that the collected LiDAR point cloud by the Polar device enhances a suite of 3D Gaussian splatting algorithms for garage scene modeling and rendering. 
+We also propose a novel depth regularizer for 3D Gaussian splatting algorithm training, effectively eliminating floating artifacts in rendered images, and a lightweight Level of Detail (LOD) Gaussian renderer for real-time viewing on web-based devices.
+Additionally, we explore a hybrid representation that combines the advantages of traditional mesh in depicting simple geometry and colors (e.g., walls and the ground) with modern 3D Gaussian representations capturing complex details and high-frequency textures. This strategy achieves an optimal balance between memory performance and rendering quality. 
+Experimental results on our dataset, along with ScanNet++ and KITTI-360, demonstrate the superiority of our method in rendering quality and resource efficiency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+<!--  
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/hmNCF5TR8sw"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          
+        </div>
+      </div>
+    </div>
+-->
+    <!--/ Paper video. -->
+
+    <!-- Overview. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <p style="text-align: center;"><img src="pipeline3.png" alt="" style="max-width:100%;"></p>
+            <h2 class="subtitle has-text-centered">
+            </h2>
+          </div>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            We design a handheld Polar scanner for expansive garage data collection, which combines IMU, LiDAR and a fisheye camera for robust relative pose estimation, and demonstrate that the LiDAR points collected by this Polar device successfully assist a suite of Gaussian splatting algorithms for garage scene representation.  
+            To improve the quality of the 3D Gaussian rendering, we also introduce a depth regularizer that uses depth priors as supervisory signals, significantly reducing floating artifacts and enabling high rendering quality.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Overview. -->
+
+      <!-- LOD. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">LOD</h2>
+
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <p style="text-align: center;"><img src="lod-level.png" alt="" style="max-width:50%;"><img src="lod-view.png" alt="" style="max-width:50%;"></p>
+
+          <h2 class="subtitle has-text-centered">
+          </h2>
+        </div>
+      </div>
+
+      <div class="content has-text-justified">
+        <p>
+
+        </p>
+      </div>
+
+  <!--/LOD. -->
+
+
+
+    <!-- Dataset. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Dataset</h2>
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <p style="text-align: center;"><img src="gallery_2.jpg" alt="" style="max-width:100%;"></p>
+            <h2 class="subtitle has-text-centered">
+            </h2>
+          </div>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            We have scanned five large-scale garages, named GarageWorld, with different geometric structures with this Polar scanner. To our knowledge, this dataset is the first aimed at large-scale garages and will be released to the community. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Dataset. -->
+
+    <!-- Result. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <p style="text-align: center;"><img src="Sig2024_Result_Wide.jpg" alt="" style="max-width:100%;"></p>
+            <h2 class="subtitle has-text-centered">
+            </h2>
+          </div>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            <b>Comparison.</b> 
+          </p>
+        </div>
+
+
+    <!--/ Result. -->
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{,
+        title={LetsGo: Large-Scale Garage Modeling and Rendering via LiDAR-Assisted Gaussian Primitives},
+        author={},
+        journal={arXiv preprint arXiv:},
+        year={2024}
+      }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
