@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping.">
+  <meta name="keywords" content="GaussianHair, 3DGS, NR">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping </h1>
+          <!-- <h1 class="title is-2 publication-title">(old version)</h1> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jdtsui.github.io/">Jiadi Cui</a><sup>1,† </sup>,
+            </span>
+            <span class="author-block">
+              <a>Jiajie Zhang</a><sup>1,†</sup>,
+            </span>
+            <span class="author-block">
+              <a>Laurent Kneip</a><sup>1,*</sup>,
+            </span>
+            <span class="author-block">
+              <a>Sören Schwertfeger</a><sup>1,*</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ShanghaiTech University</span>
+
+            <!-- <span class="author-block"><sup>*</sup>These authors contributed equally.</span> -->
+            </div>
+              <span class="author-block"><sup>†</sup>Contributed equally to this work</span>
+              <span class="author-block"><sup>*</sup>Corresponding author</span>
+            </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Data Link. -->
+  
+             <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-file"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>
+              
+              <!-- Code Link. -->
+ 
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <p style="text-align: center;"><img src="teaser.jpg" alt="" style="max-width:100%;"></p>
+      <h2 class="subtitle has-text-centered">
+      </h2>
+      <div class="content has-text-justified">
+        <p>
+          Schematic diagram of the paper-modeling method. In right figures, each color represents a piece of paper, and the fusion of all these papers is a portion of the object’s surface.
+  
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recently, implicit neural representation is a popular topic in 3D surface reconstruction. However, how to handle loop closure and bundle adjustment is a tricky problem for neural methods, because they learn the neural parameters globally. We present an algorithm that leverages the concept of surfels and expands relevant definitions to address such challenges. By integrating neural descriptors with surfels and framing surfel association as a deformation graph optimization problem, our method is able to effectively perform loop closure detection and loop correction in challenging scenarios. Furthermore, the surfel-level representation simplifies the complexity of 3D neural reconstruction. Meanwhile, the binding of neural descriptors to corresponding surfels produces a dense volumetric signed distance function (SDF), enabling the mesh reconstruction.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+    <!-- Overview. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <p style="text-align: center;"><img src="overview.png" alt="" style="max-width:100%;"></p>
+            <h2 class="subtitle has-text-centered">
+            </h2>
+          </div>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            The system consists of three core modules: Neural Representation, Tracking and Mapping, as well as 3D Reconstruction. First, we extract the neural surfel with necessary pruning. Each surfel comes with a specified neural descriptor to represent its particular shape. Following this, the surfel pose graph optimization module is used to update the graph. Finally, all surfels’ SDF are fused to produce the final reconstruction mesh.
+
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Overview. -->
+
+      <!-- Neural Surfel. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Neural Surfel</h2>
+
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <p style="text-align: center;">
+          <img src="surfel_3.png" alt="" style="max-width:24%;">
+          <img src="surfel_4.png" alt="" style="max-width:24%;">
+          <img src="surfel_0.png" alt="" style="max-width:24%;">
+          <img src="surfel_2.png" alt="" style="max-width:24%;"></p>
+
+          <h2 class="subtitle has-text-centered">
+          </h2>
+          <div class="content has-text-justified">
+            <p>(a) A Traditional Surfel (b) A Neural Surfel (c) Point Cloud (d) Mesh Result
+            </p>
+        </div>
+      </div>
+
+      <div class="content has-text-justified">
+        <p>
+          Compared to traditional surfels, our proposed neural surfels replace the basic disk (gray disk in the (a)) representation with a cubic voxel space (red box in the (b)) to store richer geometric information. Based on the point cloud within the voxel, our approach selects the coordinates of the point cloud that are connected to the surfel to learn neural latent codes and predict SDF values. Moreover, in traditional surfel reconstruction, not all surfels are used to constitute a deformation graph. However, in the definition of neural surfels reconstruction, all surfels are considered as graph nodes. (c) is the input point cloud, and (d) is the mesh result generated by our system.
+
+        </p>
+      </div>
+
+
+    <!-- Result. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <p style="text-align: center;"><img src="Comparison.png" alt="" style="max-width:100%;"></p>
+            <h2 class="subtitle has-text-centered">
+            </h2>
+          </div>
+        </div>
+<!--
+        <div class="content has-text-justified">
+          <p>
+            <b>Comparison.</b> 
+          </p>
+        </div>
+-->
+
+    <!--/ Result. -->
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{,
+        title={Neural Surfel Reconstruction: Addressing Loop Closure Challenges in Large-Scale 3D Neural Scene Mapping},
+        author={Jiadi Cui, Jiajie Zhang, Laurent Kneip and Sören Schwertfeger},
+        year={2024}
+      }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!--/
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
